@@ -1,0 +1,12 @@
+.logo{
+    border: 10em;
+    width: auto 5em;
+    
+}
+.webshop{
+    background-color: rgb(255, 247, 142);
+}
+.navbar li {
+    float: right;
+    background-color:rgba(109, 26, 26, 0.945);
+  }
