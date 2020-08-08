@@ -1,3 +1,4 @@
+from django.core.mail import BadHeaderError, send_mail
 from django.shortcuts import render
 from .models import user_data
 import json 
@@ -24,4 +25,22 @@ def login(request):
     return JsonResponse(response ,safe= False)
 
 #register
+def send_mail(request):
+    if request.method=="POST":
+        subject="for confirmation"
+        message="hello"
+        from_email="yadavdevendra@99876@gmail"
+        data= json.loads(request.body)
+        email_user= data['email']
+        print(email_user)
+        if subject and message and from_email:
+            try:
+                send_mail(subject, message, from_email, data['email'])
+            except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+            return HttpResponseRedirect('/contact/thanks/')
+        else:
+            # In reality we'd use a form class
+            # to get proper validation errors.
+            return JsonResponse( 'Make sure all fields are entered and valid.')
 # def register()
