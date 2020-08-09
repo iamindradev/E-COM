@@ -31,7 +31,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'yadavdevendra99876@gmail.com'
-EMAIL_HOST_PASSWORD = ‘’
+EMAIL_HOST_PASSWORD = ''
 
 
 # Application definition
@@ -88,10 +88,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecart',
-        'USER' : 'root',
+        'USER': 'root',
         'PASSWORD':  'Devedra@1',
         'HOST': 'localhost',
-        'PORT':'8000'
+        'PORT': '8000'
     }
 }
 
@@ -134,6 +134,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 CORS_ORIGIN_ALLOW_ALL = True
-
-
-
