@@ -5,6 +5,7 @@ class user_data(models.Model):
     name = models.CharField(max_length=50)
     contact = models.CharField(max_length = 150)
     email = models.EmailField( max_length=254)
+    e_status= models.CharField( max_length=50 , default=True)
     password = models.CharField(max_length=50)
 
     
