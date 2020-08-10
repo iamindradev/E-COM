@@ -1,5 +1,6 @@
 from django.core.mail import BadHeaderError, send_mail
 from django.shortcuts import render
+from backend.settings import EMAIL_HOST_USER
 from .models import user_data
 import json 
 from django.http import JsonResponse
@@ -29,7 +30,14 @@ def register(request):
     if request.method=="POST":
         data= json.loads(request.body)
         print(data)
-        
+        email_user= data['email']
+        subject="test mail"
+        message="template"
+        send_mail(
+            subject, message, EMAIL_HOST_USER, [email_user],
+            fail_silently=False,
+        )
+    JsonResponse("mail sent" , safe =False)
 
 
 
