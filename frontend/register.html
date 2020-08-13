@@ -22,24 +22,51 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
     <meta charset="UTF-8" />
     <script src="index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style></style>
+    <style>
+      body{
+        background-color: grey;
+      }
+      .box{
+        background-color: black;
+      }
+      
+      .loginbox{
+        background-color: aqua;
+      }
+    </style>
   </head>
   <body ng-app="app" ng-controller="login">
-    <div class="container" style="background-color: black;">
-      <div class="col-lg" style="background-color: aqua;">
-        <div class="row-lg" style="background-color: black;"></div>
-        Register
-      </div>
-      <div>
-        enter your mail address
-      </div>
-      <div>
-        <input placeholder="EMAIL" type="text" ng-model="mail" /><br><br>
+    
+    <div class="container-fluid">
+      <br />
+      <br />
+      <br /><br /><br /><br />
+      <br>
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"></div>
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 box">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xl-7 col-lg-7 co-md-8 col-sm-8 col-8 loginbox">
+            Register
+            <br>
+            <br>
+            <div>
+              <a href="#mobile">
+              <button ng-click="signphone()">
+                sign in with phone?
+              </button>
+            </a>
+            </div>
+            <br>
+            <br>
+      <div ng-view>
       </div>
       <div>
         <input type="text" placeholder="FIRST NAME" ng-model ="fname"/><br>
@@ -57,12 +84,15 @@
           SUBMIT
         </button><br><br>
       </div>
-      <div>
-        <button ng-click="signphone()">
-          sign in with phone?
-        </button>
+      
+          </div>
+              </div>
+          </div>
+          <!-- <div class="col-sm-4" style="background-color: white;">you</div> -->
+          
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"></div>
       </div>
-      <div></div>
     </div>
     <section></section>
   </body>
