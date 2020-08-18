@@ -1,8 +1,22 @@
 <div>
-    <div>
-      enter your mail id
-    </div>
-    <div>
-      <input placeholder="EMAIL" type="text" ng-model="mail" /><br /><br />
-    </div>
+  <a href="#!/mobile">
+    <button ng-click="signphone()">
+      sign in with phone?
+    </button>
+  </a>
+</div>
+<div>
+  <div>
+    enter your mail id
   </div>
+  <div>
+    <input
+      placeholder="EMAIL"
+      type="email"
+      id="identity"
+      ng-model="identity"
+      required
+    /><br /><br />
+    <input type="hidden"  id ="typ" value="email" ng-model="type" />
+  </div>
+</div>

@@ -1,20 +1,46 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["ngRoute"]);
+app.config([
+  "$routeProvider",
+  function ($routeProvider) {
+    $routeProvider
+      .when("/", {
+        templateUrl: "email.html",
+      })
+      .when("/mobile", {
+        templateUrl: "mobile.html",
+      });
+  },
+]);
 app.controller("login", function ($scope, $http) {
-  $scope.submit = function (){
+  $scope.submit = function () { 
     $http({
       method: "POST",
       url: "http://127.0.0.1:8000/register/",
       data: {
-        'fname':$scope.fname,
-        'lname':$scope.lname,
-        'email': $scope.mail,
-        'password':$scope.password
-      }
+        'fname': $scope.fname,
+        'lname': $scope.lname,
+        'identity': document.getElementById('identity').value,
+        'password': $scope.password,
+        'typ': document.getElementById('typ').value
+      },
     }).then(function (res) {
-      console.log(res.data)
-    })
-    }
-  })
+      console.log(res.data);
+    });
+  };
+
+  $scope.login = function () {
+    $http({
+      method: "POST",
+      url: "http://127.0.0.1:8000/register/",
+      data: {
+        username: $scope.username,
+        password: $scope.pasword,
+      },
+    }).then(function (res) {
+      console.log(res.data);
+    });
+  };
+});
 
 //   $scope.submit=function(){
 //     $http({

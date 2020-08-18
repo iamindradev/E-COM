@@ -5,9 +5,29 @@ from django.shortcuts import render
 from backend.settings import EMAIL_HOST_USER
 from .models import user_data
 from django.template import loader, Context
+import requests
 import json
+import random
+import math
 from django.http import JsonResponse
 from django.shortcuts import render
+
+# logic to generate otp
+
+
+def onetimepass():
+    data = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    leng = len(data)
+    otp = ""
+    for i in range(0,6):
+        otp += data[math.floor(random.random()*leng)]
+    print("your otp is", otp)
+    return otp
+
+# def phoneverify(request):
+#     if request.method =="POST":
+
+#     return JsonResponse(response.text, safe = False)
 
 
 # login
@@ -37,27 +57,50 @@ def register(request):
     if request.method == "POST":
         data = json.loads(request.body)
         print(data)
-        email = data['email']
-        # if user_data.objects.filter(email=email).exists():
-        #     response = "user exists"
-        # else:
-            # user_data.objects.create(**data)
-        response = "user created"
-        subject = "email confirmation"
-        variables = {
-            'email': email,
-            'fname': data['fname'],
-            'lname': data['lname']
+        typ = data['typ']
+        if typ == "phone":
+            data = json.loads(request.body)
+            contact = data['identity']
+            url = "https://www.fast2sms.com/dev/bulk"
+            otp = onetimepass()
 
-        }
-        print(variables)
-        with open(settings.BASE_DIR + "/registration/template/message.txt") as f:
-            text_content =  f.read()
-            html_content = loader.get_template('message.html').render(variables)        
-            msg = EmailMultiAlternatives(subject, text_content, EMAIL_HOST_USER, [email])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
-        return JsonResponse(response, safe=False)
+            payload = "sender_id=FSTSMS&message=THIS%20IS%20YOUR%20OTP%20FOR%20FOR%20CONFIRMATION%20OF%20CONTACT%20NUMBER%20ON%20DEVENDRA'S%20E-CART%20 :" + \
+                otp+"&language=english&route=p&numbers="+contact
+            headers = {
+                'authorization': "VdTeLyCubRJonDXW9wt2m7ENIB5KgcZxUkhOMpiYQ43AHz0fFSk1brgcdECAmMXu4OVQFz95LGUBPxSJ",
+                'Content-Type': "application/x-www-form-urlencoded",
+                'Cache-Control': "no-cache",
+            }
+
+            resp = requests.request("POST", url, data=payload, headers=headers)
+
+            print(resp.text)
+            response = "msg sent"
+
+        else:
+            email = data['identity']
+            response = "user created"
+            subject = "email confirmation"
+            variables = {
+                'email': email,
+                'fname': data['fname'],
+                'lname': data['lname']
+
+            }
+            print(variables)
+            with open(settings.BASE_DIR + "/registration/template/message.txt") as f:
+                text_content = f.read()
+                html_content = loader.get_template(
+                    'message.html').render(variables)
+                msg = EmailMultiAlternatives(
+                    subject, text_content, EMAIL_HOST_USER, [email])
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+                if user_data.objects.filter(email=email).exists():
+                    response = "user exists"
+                else:
+                    user_data.objects.create(**data)
+    return JsonResponse(response, safe=False)
 
 
 # def send_mail(request):

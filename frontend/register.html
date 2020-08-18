@@ -22,8 +22,10 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
     <meta charset="UTF-8" />
     <script src="index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,29 +43,22 @@
       }
     </style>
   </head>
-  <body ng-app="app" ng-controller="login">
+  <body ng-app="app" >
     
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="login">
       <br />
       <br />
       <br /><br /><br /><br />
       <br>
         <div class="row">
-          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"></div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"></div>
           <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 box">
           <div class="container-fluid">
-            <div class="row">
+            <div class="row" >
               <div class="col-xl-7 col-lg-7 co-md-8 col-sm-8 col-8 loginbox">
             Register
             <br>
-            <br>
-            <div>
-              <a href="#mobile">
-              <button ng-click="signphone()">
-                sign in with phone?
-              </button>
-            </a>
-            </div>
+            <br>  
             <br>
             <br>
       <div ng-view>

@@ -1,8 +1,21 @@
 <div>
+  <a href="#!/">
+    <button ng-click="signphone()">
+      sign in with email?
+    </button>
+  </a>
   <div>
-    enter your phone number
-  </div>
-  <div>
-    <input placeholder="EMAIL" type="text" ng-model="mail" /><br /><br />
+    <div>
+      enter your mobile number
+    </div>
+    <div>
+      <input
+        placeholder="MOBILE NUMBER"
+        type="number"
+        id="identity"
+        ng-model="identity"
+      /><br /><br />
+      <input type="hidden" id ="typ" value="phone" ng-model="type" />
+    </div>
   </div>
 </div>
