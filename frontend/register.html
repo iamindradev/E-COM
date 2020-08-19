@@ -25,66 +25,96 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.min.js"
+      integrity="sha512-ySDkgzoUz5V9hQAlAg0uMRJXZPfZjE8QiW0fFMW7Jm15pBfNn3kbGsOis5lPxswtpxyY3wF5hFKHi+R/XitalA=="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.css"
+      integrity="sha512-n7nFZrzrpAWFDeQpyGwpH2W6maWlysBPf0cP5qf0xntjmH6R1QDg3ABfRVj7dTHWDmcTfLzmAG9PDPDdVd6odQ=="
+      crossorigin="anonymous"
+    />
     <meta charset="UTF-8" />
     <script src="index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>DEVENDRA'S ECART</title>
     <style>
-      body{
+      body {
         background-color: grey;
       }
-      .box{
+      .box {
         background-color: black;
       }
-      
-      .loginbox{
+
+      .loginbox {
         background-color: aqua;
       }
     </style>
   </head>
-  <body ng-app="app" >
-    
+  <body ng-app="app">
     <div class="container-fluid" ng-controller="login">
       <br />
       <br />
-      <br /><br /><br /><br />
-      <br>
-        <div class="row">
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"></div>
-          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 box">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"></div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 box">
           <div class="container-fluid">
-            <div class="row" >
+            <div class="row">
               <div class="col-xl-7 col-lg-7 co-md-8 col-sm-8 col-8 loginbox">
-            Register
-            <br>
-            <br>  
-            <br>
-            <br>
-      <div ng-view>
-      </div>
-      <div>
-        <input type="text" placeholder="FIRST NAME" ng-model ="fname"/><br>
-        <br>
-        <input type="text" placeholder="LAST NAME " ng-model="lname"/><br><br>
-      </div>
-      <div>
-        <input type="password" placeholder="PASSWORD" id ="password"type="text"/><br><br>
-      </div>
-      <div>
-        <input type="password" placeholder="CONFIRM PASSWORD" id="confirmpswd" type="text" ng-model="password" /><br><br>
-      </div>
-      <div>
-        <button type="button" class="btn btn-success" ng-click="submit()">
-          SUBMIT
-        </button><br><br>
-      </div>
-      
-          </div>
+                Register
+                <br />
+                <br />
+                <br />
+                <br />
+                <div ng-view></div>
+                <div>
+                  
+                <input type="text" id="fname" name="fname" placeholder="ENTER FIRST NAME" ng-model="fname"><br />
+                  <br />
+                  <input
+                    type="text"
+                    placeholder="LAST NAME"
+                    id="lname"
+                    ng-model="lname"
+                  /><br /><br />
+                </div>
+                <div>
+                  <input
+                    type="password"
+                    placeholder="PASSWORD"
+                    id="tpassword"
+                    type="text"
+                  /><br /><br />
+                </div>
+                <div>
+                  <input
+                    type="password"
+                    placeholder="CONFIRM PASSWORD"
+                    id="password"
+                    type="text"
+                    ng-model="password"
+                  /><br /><br />
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    ng-click="submit()"
+                  >
+                    SUBMIT</button
+                  ><br /><br />
+                </div>
               </div>
+            </div>
           </div>
           <!-- <div class="col-sm-4" style="background-color: white;">you</div> -->
-          
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"></div>
       </div>
