@@ -1,26 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.min.js"
+    integrity="sha512-ySDkgzoUz5V9hQAlAg0uMRJXZPfZjE8QiW0fFMW7Jm15pBfNn3kbGsOis5lPxswtpxyY3wF5hFKHi+R/XitalA=="
+    crossorigin="anonymous"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.css"
+    integrity="sha512-n7nFZrzrpAWFDeQpyGwpH2W6maWlysBPf0cP5qf0xntjmH6R1QDg3ABfRVj7dTHWDmcTfLzmAG9PDPDdVd6odQ=="
+    crossorigin="anonymous"
+  />
+    <meta charset="UTF-8" />
+    <script src="login.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEVENDRA'S ECART</title>
     <style>
-       
-
+      body{
+        background-color: grey;
+      }
+      .box{
+        background-color: black;
+      }
+      
+      .loginbox{
+        background-color: aqua;
+      }
     </style>
-</head>
-<body>
-    <div class="container" style="background-color:black;"> 
-        <div class="col-lg" style="background-color: aqua;">
-            <div class="row-lg" style="background-color:black;"></div>
-            login
-        </div>
-
+  </head>
+  <body ng-app="app">
+    
+<div class="container-fluid" ng-controller="loginn">
+    <br />
+    <br />
+    <br /><br /><br /><br />
+    <br>
+      <div class="row">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"></div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 box">
+        <div class="container-fluid">
+          <div class="row" >
+            <div class="col-xl-7 col-lg-7 co-md-8 col-sm-8 col-8 loginbox">
+          LOGIN
+          <br>
+          <br>  
+          
+    <div>
+      <input type="text" placeholder="ENTER YOUR PHONE OR EMAIL" ng-model ="username"/><br><br>
+      NOTE: REMEMBER WITH WHICH YOU'VE <strong>REGISTERED</strong> !
+      <br>
+      <br>
+    <div>
+      <input type="password" placeholder="CONFIRM PASSWORD" id="confirmpswd" type="text" ng-model="password" /><br><br>
     </div>
-</body>
-</html>
+    <div>
+      <button type="button" class="btn btn-success" ng-click="login()">
+        LOGIN
+      </button><br><br>
+    </div>
+    
+        </div>
+            </div>
+        </div>
+        <!-- <div class="col-sm-4" style="background-color: white;">you</div> -->
+        
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4"></div>
+    </div>
+  </div>
+</div></body></html>
