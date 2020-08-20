@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"
+  ></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.min.js"
+    integrity="sha512-ySDkgzoUz5V9hQAlAg0uMRJXZPfZjE8QiW0fFMW7Jm15pBfNn3kbGsOis5lPxswtpxyY3wF5hFKHi+R/XitalA=="
+    crossorigin="anonymous"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.css"
+    integrity="sha512-n7nFZrzrpAWFDeQpyGwpH2W6maWlysBPf0cP5qf0xntjmH6R1QDg3ABfRVj7dTHWDmcTfLzmAG9PDPDdVd6odQ=="
+    crossorigin="anonymous"
+  />
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js"></script>
+    <title>WEBSHOP</title>
+</head>
+
+<body ng-app="app" ng-controller="home">
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light webshop">
+            <a class="navbar-brand" href="#home"><img src="images/sitelogo2.png" class="logo" alt="logoforshop">
+            </a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                    </li>
+                            
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">ELECTRONICS</a>
+                            <a class="dropdown-item" href="#">WARDROBE</a>
+                            <a class="dropdown-item" href="#">FURNITUE</a>
+                            <a class="dropdown-item" href="#">UTENSILS</a>
+                            <a class="dropdown-item" href="#">OTHERS</a>
+                            
+                            
+                            
+                        </div>
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="#!wishlist">WISHLIST</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="#!orders/">ORDERS</a>
+                    </li>
+                
+                    <li>
+                       <a href="#!profile/"><img src="images/useravtar.jpg" width="30px" height="30px"   alt="usericon"></a>
+
+                    </li>
+                </ul>
+                </div>
+        </nav>
+    </header>
+    <div class="container">
+    <div class="searchbar">
+      <input type="text" placeholder="Search.." name="search">
+      <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i>search</button>
+    </div>
+    </div>
+    <br><br><br>
+    <div ng-view>
+
+    </div>
+
+    
+</body>
+</html>

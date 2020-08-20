@@ -1,0 +1,22 @@
+.searchbar input[type=text]{
+    width: 80%;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border:gray;
+  }
+  
+/* .searchbar .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+   */
+/* .searchbar .search-container button:hover {
+    background: #ccc;
+  } */

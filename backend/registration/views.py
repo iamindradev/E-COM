@@ -36,34 +36,21 @@ def login(request):
         data = json.loads(request.body)
         username = data['username']
         passwd = data['password']
-        if type(username)==int:
-            contact= username
-            if user_data.objects.filter(identity=contact): 
-                passwd_lst = list(user_data.objects.filter(identity=contact).values('password')) 
-                print(passwd_lst)
-                passwd_data=passwd_lst[0]
-                passwd_db=passwd_data['password']
-                print(passwd_db)
-                if passwd == passwd_db:
-                    response = "logged in successfully"
-                else:
-                    response = "wrong password"
+        if user_data.objects.filter(identity=username): 
+            passwd_lst = list(user_data.objects.filter(identity=username).values('password')) 
+            print(passwd_lst)
+            passwd_data=passwd_lst[0]
+            passwd_db=passwd_data['password']
+            print(passwd_db)
+            if passwd == passwd_db:    
+                request.session.set_test_cookie() 
+
+                request.session['username']=username
+                response = "logged in successfully"
             else:
-                response = "you haven't registered yet or wrong contact"
+                response = "wrong password"
         else:
-            email = username
-            if user_data.objects.filter(identity=email) :
-                passwd_lst = list(user_data.objects.filter(identity=email).values('password')) 
-                print(passwd_lst)
-                passwd_data=passwd_lst[0]
-                passwd_db=passwd_data['password']
-                print(passwd_db)
-                if passwd == passwd_db:
-                    response = "logged in successfully"
-                else:
-                    response = "wrong password"
-            else:
-                response = "you haven't registered yet or wrong mail id"
+            response = "you haven't registered yet or wrong mail/contact"
     return JsonResponse(response, safe=False)
 
 # register
