@@ -1,19 +1,33 @@
-<div class="row">
-    <div class="col-xl-3" ng-repeate>
+<div class="container row">
+    <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
+    
+    <div class="col-xl-4 col-lg-4 col-sm-4 col-md-4" ng-repeat="item in items">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="" alt="Card image cap">
+            <img class="card-img-top" src="images/avtar/{{item.image}}
+            " alt="Card image cap">
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="entry">{{item.name}}</div>
+              <div class="entry">{{item.category}}</div>
+              <div class="entry">{{item.description}}</div>
+              <div class="entry">{{item.rating}}</div>
+              <div class="entry">₹{{item.price}}</div>
               <div class="row">
                   <div>
                       <button class="btn btn-primary">ADD TO CART</button>
                   </div>
+                  <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
                   <div>
                       <button class="btn btn-success">BUY</button>
                   </div>
               </div>
             </div>
           </div>
-
+</div>
+    <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
+    <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
+    <div class="row">
+        <br>
+        <br>
+        <br>
     </div>
 </div>

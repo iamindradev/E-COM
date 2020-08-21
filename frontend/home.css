@@ -5,7 +5,10 @@
     font-size: 17px;
     border:gray;
   }
-  
+.entry{
+  font-weight: bold;
+  text-transform: uppercase;
+}
 /* .searchbar .search-container button {
     float: right;
     padding: 6px 10px;

@@ -12,7 +12,9 @@ app.config([
   },
 ]);
 app.controller("login", function ($scope, $http) {
+  
   $scope.submit = function () {
+    
      var value={
       'fname': document.getElementById('fname').value,
       'lname': document.getElementById('lname').value,

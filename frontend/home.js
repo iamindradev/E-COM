@@ -18,8 +18,34 @@ app.config([
     },
   ]);
 app.controller("home" ,function($scope, $http){
-  var items={
-    name:
-  }
-
+  $http({
+    method:"GET",
+    url:"http://127.0.0.1:8000/shopping/"
+  }).then(function(res){
+    console.log(res.data);
+    $scope.items=res.data;
+    $scope.data=[
+      {"a":"q","b":"p","c":"r"}
+    ]
+    $scope.records = [
+      {
+        "Name" : "Alfreds Futterkiste",
+        "Country" : "Germany"
+      },
+      {
+        "Name" : "Berglunds snabbköp",
+        "Country" : "Sweden"
+      },
+      {
+        "Name" : "Centro comercial Moctezuma",
+        "Country" : "Mexico"
+      },
+      {
+        "Name" : "Ernst Handel",
+        "Country" : "Austria"
+      }
+    ]
+  })
+  
+// app.controller("default", function)
 })
