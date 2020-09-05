@@ -30,6 +30,8 @@
     integrity="sha512-ySDkgzoUz5V9hQAlAg0uMRJXZPfZjE8QiW0fFMW7Jm15pBfNn3kbGsOis5lPxswtpxyY3wF5hFKHi+R/XitalA=="
     crossorigin="anonymous"
   ></script>
+  <!-- <script type="application/javascript" crossorigin="anonymous" src="{HOST}/merchantpgpui/checkoutjs/merchants/{MID}.js" onload="onScriptLoad();"> </script> -->
+
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.css"
@@ -81,19 +83,14 @@
                     </li>
                 
                     <li>
-                       <a href="#!profile/"><img src="images/useravtar.jpg" width="30px" height="30px"   alt="usericon"></a>
+                       <a href="#!/profile"><img src="images/useravtar.jpg" width="30px" height="30px"   alt="usericon"></a>
 
                     </li>
                 </ul>
                 </div>
         </nav>
     </header>
-    <div class="container">
-    <div class="searchbar">
-      <input type="text" placeholder="Search.." name="search">
-      <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i>search</button>
-    </div>
-    </div>
+    
     <br><br><br>
     <div ng-view>
 

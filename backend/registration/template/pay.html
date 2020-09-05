@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Show Payment Page</title>
+  </head>
+  <body>
+      <center>
+        <h1>Please do not refresh this page...</h1>
+      </center>
+      <form
+        method="post"
+        action="https://securegw-stage.paytm.in/theia/api/v1/showPaymentPage?mid=odqOQb08807102424906&orderId={{orderid}}"
+        name="paytm"
+      >
+        <table border="1">
+          <tbody>
+            <input type="hidden" name="mid" value="odqOQb08807102424906" />
+            <input type="hidden" name="orderId" value="{{orderid}}" />
+            <input type="hidden" name="txnToken" value="{{item}}" />
+          </tbody>
+        </table>
+        <script type="text/javascript">
+          document.paytm.submit();
+        </script>
+      </form>
+  </body>
+</html>

@@ -19,7 +19,7 @@ def onetimepass():
     data = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
     leng = len(data)
     otp = ""
-    for i in range(0,6):
+    for i in range(0, 6):
         otp += data[math.floor(random.random()*leng)]
     print("your otp is", otp)
     return otp
@@ -34,23 +34,43 @@ def onetimepass():
 def login(request):
     if request.method == "POST":
         data = json.loads(request.body)
+        print(data)
         username = data['username']
         passwd = data['password']
-        if user_data.objects.filter(identity=username): 
-            passwd_lst = list(user_data.objects.filter(identity=username).values('password')) 
+        if user_data.objects.filter(identity=username):
+            passwd_lst = list(user_data.objects.filter(
+                identity=username).values('password', 'id'))
             print(passwd_lst)
-            passwd_data=passwd_lst[0]
-            passwd_db=passwd_data['password']
-            print(passwd_db)
-            if passwd == passwd_db:    
-                request.session.set_test_cookie() 
+            passwd_data = passwd_lst[0]
+            # id_data= passwd_lst[1]
+            id=passwd_data['id']
+            passwd_db = passwd_data['password']
+            print(passwd_db,id)
+            if passwd == passwd_db:
+                if request.session.test_cookie_worked():
+                    response=id
 
-                request.session['username']=username
-                response = "logged in successfully"
+                else:
+                    # request.session.set_test_cookie()
+                    # request.session['id'] = id
+                    response = id
             else:
                 response = "wrong password"
         else:
             response = "you haven't registered yet or wrong mail/contact"
+    return JsonResponse(response, safe=False)
+
+
+def point(request):
+    if request.method == "GET":
+        username = "devendra"
+        if request.session.test_cookie_worked():
+            response = "logged in successfully"
+
+        else:
+            request.session.set_test_cookie()
+            request.session['username'] = username
+            response = "logged in successfully"
     return JsonResponse(response, safe=False)
 
 # register
@@ -59,11 +79,11 @@ def login(request):
 def register(request):
     if request.method == "POST":
         data = json.loads(request.body)
-        identity=data['identity']
-        typ=data['typ']
-        if user_data.objects.filter(identity= identity ).exists() == True:
+        identity = data['identity']
+        typ = data['typ']
+        if user_data.objects.filter(identity=identity).exists() == True:
             # or user_data.objects.filter(email= identity ).exists()
-            response="user exists"
+            response = "user exists"
         else:
             if typ == "phone":
                 data = json.loads(request.body)
@@ -78,18 +98,19 @@ def register(request):
                     'Content-Type': "application/x-www-form-urlencoded",
                     'Cache-Control': "no-cache",
                 }
-                resp = requests.request("POST", url, data=payload, headers=headers)
+                resp = requests.request(
+                    "POST", url, data=payload, headers=headers)
                 # fname=data['fname']
                 # lname=data['lname']
                 # password=data['password']
                 print(resp.text)
-                user_data.objects.create(otp=otp,**data)
+                user_data.objects.create(otp=otp, **data)
                 response = "msg sent and user created"
 
             else:
                 email = data['identity']
                 # response = "user created with mail"
-                response= list(user_data.objects.all())
+                response = list(user_data.objects.all())
                 print(response)
                 subject = "email confirmation"
                 variables = {
@@ -97,8 +118,8 @@ def register(request):
                     'email': email,
                     'fname': data['fname'],
                     'lname': data['lname'],
-                    'password':data['password'],
-                    'typ':data['typ']
+                    'password': data['password'],
+                    'typ': data['typ']
 
                 }
                 print(variables)
@@ -112,36 +133,16 @@ def register(request):
                     msg.send()
                     # user_data.objects.create(email=email,)
                     user_data.objects.create(**data)
-                    
+
     return JsonResponse(response, safe=False)
+
+
 def phoneverify(request):
-    if request.mehtod=="POST":
-        data=json.loads(resquest.body)
-        otp=data['otp']
-        if user_data.objects.filter(otp=otp).exists()==True:
-            response="verified"
+    if request.mehtod == "POST":
+        data = json.loads(request.body)
+        otp = data['otp']
+        if user_data.objects.filter(otp=otp).exists() == True:
+            response = "verified"
         else:
-            response= "wrong otp"
-    return JsonResponse(response, safe= False)
-
-
-
-# def send_mail(request):
-#     if request.method=="POST":
-#         subject="for confirmation"
-#         message="hello"
-#         from_email="yadavdevendra@99876@gmail"
-#         data= json.loads(request.body)
-#         email_user= data['email']
-#         print(email_user)
-#         if subject and message and from_email:
-#             try:
-#                 send_mail(subject, message, from_email, data['email'])
-#             except BadHeaderError:
-#                     return HttpResponse('Invalid header found.')
-#             return HttpResponseRedirect('/contact/thanks/')
-#         else:
-#             # In reality we'd use a form class
-#             # to get proper validation errors.
-#             return JsonResponse( 'Make sure all fields are entered and valid.')
-# # def register()
+            response = "wrong otp"
+    return JsonResponse(response, safe=False)

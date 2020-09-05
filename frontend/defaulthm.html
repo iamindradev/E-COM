@@ -1,33 +1,51 @@
-<div class="container row">
-    <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
-    
-    <div class="col-xl-4 col-lg-4 col-sm-4 col-md-4" ng-repeat="item in items">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="images/avtar/{{item.image}}
-            " alt="Card image cap">
-            <div class="card-body">
-              <div class="entry">{{item.name}}</div>
-              <div class="entry">{{item.category}}</div>
-              <div class="entry">{{item.description}}</div>
-              <div class="entry">{{item.rating}}</div>
-              <div class="entry">₹{{item.price}}</div>
-              <div class="row">
-                  <div>
-                      <button class="btn btn-primary">ADD TO CART</button>
-                  </div>
-                  <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
-                  <div>
-                      <button class="btn btn-success">BUY</button>
-                  </div>
-              </div>
-            </div>
-          </div>
+<div class="container">
+  <div class="searchbar">
+    <input type="text" placeholder="Search.." name="search" />
+    <button class="btn btn-info" type="submit">
+      <i class="glyphicon glyphicon-search"></i>search
+    </button>
+  </div>
 </div>
+<br />
+<br />
+<br />
+<div class="container-fluid row">
+  <div
+    class="col-xl-4 col-lg-4 col-sm-4 col-md-4 align-items-stretch"
+    ng-repeat="item in items"
+  >
     <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
     <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
-    <div class="row">
-        <br>
-        <br>
-        <br>
+
+    <div class="card box" style="width: 18rem;">
+      <img
+        class="card-img-top"
+        src="images/avtar/{{item.image}}
+            "
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <div class="entry">{{item.name}}</div>
+        <div class="entry">{{item.category}}</div>
+        <div class="entry">{{item.description}}</div>
+        <div class="entry">{{item.rating}}</div>
+        <div class="entry">₹{{item.price}}</div>
+        <!-- <div><input type="text" id="item.id" ng-model="p_id" ng-value="item.id" ></div> -->
+        <div class="row">
+          <div>
+            <a href="#">
+              <button class="btn btn-primary" ng-click="addtocart()">ADD TO CART</button></a
+            >
+          </div>
+          <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
+          <div>
+            <a href="#!/ordercnf">
+              <button class="btn btn-success" ng-click="makeorder(item)">BUY</button></a
+            >
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="col-xl-3 col-lg-3 col-sm-3 col-md-3"></div>
+  </div>
 </div>

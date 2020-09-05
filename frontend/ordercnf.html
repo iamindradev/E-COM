@@ -1,0 +1,144 @@
+<div class="container layout" ng-controller="order">
+  <div class="blockquote text-center"><h1>CONFIRM YOUR ORDER</h1></div>
+  <div class="row">
+    NAME
+    <input
+      type="text"
+      placeholder="ENTER YOUR NAME"
+      id="name"
+      ng-click="name"
+    />
+  </div>
+  <div class="col col-xl-3 col-sm-3 col-md-3 col-lg-3"></div>
+  <div class="row">
+    EMAIL
+    <input
+      type="text"
+      placeholder="ENTER YOUR MAIL"
+      id="name"
+      ng-click="email"
+    />
+  </div>
+
+  <div class="blockquote text-center">
+    <h3>ADDRESS</h3>
+  </div>
+  <div class="row address">
+    <div class="row-item">
+      HOUSE NO.
+      <input
+        type="text"
+        name="houseno"
+        id="house no"
+        class="address"
+        placeholder="ENTER HOUSE NO"
+        ng-click="houseno"
+      />
+    </div>
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="row-item">
+      STREET
+      <input
+        type="text"
+        class="address"
+        placeholder="ENTER YOUR NAME"
+        id="name"
+        ng-click=""
+      />
+    </div>
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="row-item">
+      DISTRICT
+      <input
+        type="text"
+        name="district"
+        id="district"
+        class="address"
+        placeholder="ENTER DISTRICT"
+      />
+    </div>
+
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="row-item">
+      STATE
+      <input
+        type="text"
+        class="address"
+        name="state"
+        id="state"
+        placeholder="ENTER STATE"
+      />
+    </div>
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="row-item">
+      COUNTRY
+      <input
+        type="text"
+        name="country"
+        class="address"
+        id="country"
+        placeholder="ENTER COUNTRY"
+      />
+    </div>
+  </div>
+  <div class="blockquote text-center">
+    <h3>PRODUCT(S)</h3>
+    <div class="container-fluid row">
+      <div
+        class="col-xl-4 col-lg-4 col-sm-4 col-md-4 align-items-stretch"
+        ng-repeat="item in items"
+      >
+        <div class="col-xl-1 col-lg-1 col-sm-1 col-md-1"></div>
+
+        <div class="card box" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="images/avtar/{{item.product_id__image}}
+                "
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <div class="entry">{{item.product_id__name}}</div>
+            <div class="entry">₹{{item.product_id__price}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blockquote text-center">
+    <h3>TOTAL AMOUNT</h3>
+  </div>
+  <div class="blockquote text-center">
+    <h3>ACOOUNT</h3>
+  </div>
+  <div class="row">
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div>
+      <input
+        type="text"
+        class="address"
+        placeholder="ENTER IFSC CODE"
+        ng-model="ifsc"
+      />
+    </div>
+    <div class="col col-xl-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <button class="btn btn-success verify">VERIFY</button>
+  </div>
+  <div>
+    <input type="text" name="orderid" id="orderid" ng-model="orderid">
+    <input type="text" name="amount" id="amount" ng-model="amount">
+    <input type="text" name="cutomer_id" ng-model="custid">
+  </div>
+
+  <div class="row-item">
+    <div class="col col-xl-3 col-sm-3 col-md-3 col-lg-3"></div>
+    <a href=""
+      ><button class="btn btn-success pay" ng-click="makepayment()">
+        PAY NOW
+      </button></a
+    >
+  </div>
+</div>
+
