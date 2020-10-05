@@ -146,3 +146,4 @@ def phoneverify(request):
         else:
             response = "wrong otp"
     return JsonResponse(response, safe=False)
+#added some comment that some work is left
